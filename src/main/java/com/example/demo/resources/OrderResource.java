@@ -1,8 +1,7 @@
 package com.example.demo.resources;
 
-import com.example.demo.entities.User;
-
-import com.example.demo.services.UserService;
+import com.example.demo.entities.Order;
+import com.example.demo.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,23 +12,23 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/user")
-public class UserResource
+@RequestMapping(value = "/order")
+public class OrderResource
 {
     @Autowired
-    private UserService service;
+    private OrderService service;
     @GetMapping
-    public ResponseEntity<List<User>> findUsers()
+    public ResponseEntity<List<Order>> findUsers()
     {
-        List<User> u = service.findAll();
+        List<Order> u = service.findAll();
 
             return ResponseEntity.ok(u);
     }
 
     @GetMapping( value = "/{id}")
-    public ResponseEntity<User> findById(@PathVariable long id)
+    public ResponseEntity<Order> findById(@PathVariable long id)
     {
-        User o = service.findById(id);
+        Order o = service.findById(id);
         return ResponseEntity.ok(o);
     }
 }
