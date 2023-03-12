@@ -28,6 +28,13 @@ public class TestConfig implements CommandLineRunner
 
     @Override
     public void run(String... args) throws Exception {
+        Category cat1 = new Category(0, "Ice Cream");
+        Category cat2 = new Category(0, "Frozen Yogurt");
+        Category cat3 = new Category(0, "Ice Cream Cake");
+
+        categoryRepository.saveAll(Arrays.asList(cat1,cat2,cat3));
+
+
         User u1 = new User(0, "Maria Brown", "maria@gmail.com", "988888888", "123456");
         User u2 = new User(0, "Alex Green", "alex@gmail.com", "977777777", "123456");
         User u3 = new User(0, "Luca Blue", "luca@gmail.com", "966666666", "123456");
@@ -45,11 +52,6 @@ public class TestConfig implements CommandLineRunner
 
         orderRepository.saveAll(Arrays.asList(o1,o2,o3,o4,o5));
 
-        Category cat1 = new Category(0, "Electronics");
-        Category cat2 = new Category(0, "Books");
-        Category cat3 = new Category(0, "Computers");
-
-        categoryRepository.saveAll(Arrays.asList(cat1,cat2,cat3));
     }
 
 }
